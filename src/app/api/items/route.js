@@ -1,7 +1,7 @@
 import dbConnection from "@/lib/dbConnect";
 
 export async function GET() {
-  const data = await dbConnection("products").find({}).toArray()
+  const data = await dbConnection("productsone").find({}).toArray()
 
   return Response.json(data);
 }
