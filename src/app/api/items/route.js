@@ -8,6 +8,6 @@ export async function GET() {
 
 export async function POST(req) {
   const postdata = await req.json()
-  const result = await dbConnection("products").insertOne(postdata)
+  const result = await dbConnection("productsone").insertOne(postdata)
   return Response.json(result);
 }

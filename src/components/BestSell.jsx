@@ -1,13 +1,14 @@
-import dbConnection from "@/lib/dbConnect";
 import { motion } from "framer-motion";
+import dbConnection from "@/lib/dbConnect";
+import React from "react";
 import Link from "next/link";
 
-const Page = async () => {
+const BestSell = async () => {
   const productCollection = dbConnection("productsone");
-  const datas = await productCollection.find().toArray();
+  const data = await productCollection.find().toArray();
   return (
-    <div className="container mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-6 text-center">Our Products</h2>
+    <div className="container mx-auto mt-5 p-6">
+      <h2 className="text-2xl font-bold mb-6 text-center">Best Sell Product</h2>
 
       <div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
@@ -18,7 +19,7 @@ const Page = async () => {
         //     show: { transition: { staggerChildren: 0.2 } },
         //   }}
       >
-        {datas.map((product, index) => (
+        {data.map((product, index) => (
           <div
             key={index}
             className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col"
@@ -56,4 +57,4 @@ const Page = async () => {
   );
 };
 
-export default Page;
+export default BestSell;
